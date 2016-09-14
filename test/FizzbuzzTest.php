@@ -4,6 +4,7 @@ use Exception;
 
 class FizzbuzzTest extends \PHPUnit_Framework_TestCase
 {
+
   /**
    * @test
    */
@@ -42,13 +43,13 @@ class FizzbuzzTest extends \PHPUnit_Framework_TestCase
 
   public function getFizzBuzzList(){
     return [
-      [3,'Fizz'],
-      [7, 7],
-      [10,'Buzz'],
+      [3,  'Fizz'    ],
+      [7,    7       ],
+      [10, 'Buzz'    ],
       [30, 'FizzBuzz'],
-      [33, 'Fizz'],
-      [50, 'Buzz'],
-      [53, 53]
+      [33, 'Fizz'    ],
+      [50, 'Buzz'    ],
+      [53,  53       ]
     ];
   }
 
@@ -63,10 +64,11 @@ class FizzbuzzTest extends \PHPUnit_Framework_TestCase
 
   public function NaNArray(){
     return [
-      ["野獣"],
+      ['野獣'],
       [0.15], 
       [-13],
-      [-5.3]
+      [-5.3],
+      ['foo']
     ];
   }
 

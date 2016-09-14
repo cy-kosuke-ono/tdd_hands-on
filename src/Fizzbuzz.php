@@ -4,7 +4,8 @@ use Exception;
 
 class Fizzbuzz
 {
-    private function NaNThrowException($value){
+
+    private function NaNIntThrowException($value){
       if(!is_int($value) or $value < 0){
         throw new Exception("それ整数ちゃう");
       }
@@ -24,7 +25,7 @@ class Fizzbuzz
 
     public function call($value){
       
-      $this->NaNThrowException($value);
+      $this->NaIntThrowException($value);
 
       if ($this->isFizzBuzz($value)){
         return 'FizzBuzz';
@@ -37,6 +38,5 @@ class Fizzbuzz
       }
       return $value;
     }
-
 
 }
