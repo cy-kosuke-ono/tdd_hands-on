@@ -11,8 +11,8 @@ class Fizzbuzz
       }
     }
 
-    private function bigNumThrowException($value){
-      if($value > 100){
+    private function bigNumThrowException($value, $limit){
+      if($value > $limit){
         throw new Exception("でかすぎ");
       }
     }
@@ -29,19 +29,31 @@ class Fizzbuzz
       return $this->isFizz($value) and $this->isBuzz($value);
     }
 
-    public function call($value){
+    private function getFizz(){
+      return 'Fizz';
+    }
+
+    private function getBuzz(){
+      return 'Buzz';
+    }
+
+    private function getFizzBuzz(){
+      return $this->getFizz().$this->getBuzz();
+    }
+
+    public function call($value, $limit = 100){
       
       $this->NaNatThrowException($value);
-      $this->BigNumThrowException($value);
+      $this->BigNumThrowException($value,$limit);
 
       if ($this->isFizzBuzz($value)){
-        return 'FizzBuzz';
+        return $this->getFizzBuzz();
       }
       if ($this->isFizz($value)){
-        return 'Fizz';
+        return $this->getFizz();
       }
       if ($this->isBuzz($value)){
-        return 'Buzz';
+        return $this->getBuzz();
       }
       return $value;
     }

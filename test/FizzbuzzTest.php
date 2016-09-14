@@ -5,6 +5,38 @@ use Exception;
 class FizzbuzzTest extends \PHPUnit_Framework_TestCase
 {
 
+  public function getFizzBuzzList(){
+    return [
+      [3,  'Fizz'    ],
+      [7,    7       ],
+      [10, 'Buzz'    ],
+      [30, 'FizzBuzz'],
+      [33, 'Fizz'    ],
+      [50, 'Buzz'    ],
+      [53,  53       ]
+    ];
+  }
+
+  public function NaNatArray(){
+    return [
+      ['野獣'],
+      [0.15], 
+      [-13],
+      [-5.3],
+      ['foo'],
+      [0],
+      ['ですん']
+    ];
+  }
+
+  public function bigNumArray(){
+    return [
+      [101],
+      [1991],
+      [13579]
+    ];
+  }
+
   /**
    * @test
    */
@@ -41,18 +73,6 @@ class FizzbuzzTest extends \PHPUnit_Framework_TestCase
     $this->assertSame("Buzz", $fizzbuzz->call($expected));
   }
 
-  public function getFizzBuzzList(){
-    return [
-      [3,  'Fizz'    ],
-      [7,    7       ],
-      [10, 'Buzz'    ],
-      [30, 'FizzBuzz'],
-      [33, 'Fizz'    ],
-      [50, 'Buzz'    ],
-      [53,  53       ]
-    ];
-  }
-
   /**
    * @test
    * @dataProvider getFizzBuzzList
@@ -60,18 +80,6 @@ class FizzbuzzTest extends \PHPUnit_Framework_TestCase
   public function FizzBuzzを正しく返す($value, $expected){
     $fizzbuzz = new FizzBuzz();
     $this->assertSame($expected, $fizzbuzz->call($value));
-  }
-
-  public function NaNatArray(){
-    return [
-      ['野獣'],
-      [0.15], 
-      [-13],
-      [-5.3],
-      ['foo'],
-      [0],
-      ['ですん']
-    ];
   }
 
   /**
@@ -84,14 +92,6 @@ class FizzbuzzTest extends \PHPUnit_Framework_TestCase
     $fizzbuzz = new FizzBuzz();
     $expected = $value;
     $fizzbuzz->call($expected);
-  }
-
-  public function bigNumArray(){
-    return [
-      [101],
-      [1991],
-      [13579]
-    ];
   }
 
   /**
