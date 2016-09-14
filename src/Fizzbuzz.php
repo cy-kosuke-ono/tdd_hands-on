@@ -6,4 +6,8 @@ class Fizzbuzz
     {
         return $a + $b;
     }
+
+    public function call($value){
+      return $value;
+    }
 }
