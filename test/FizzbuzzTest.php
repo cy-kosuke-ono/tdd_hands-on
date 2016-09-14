@@ -62,22 +62,45 @@ class FizzbuzzTest extends \PHPUnit_Framework_TestCase
     $this->assertSame($expected, $fizzbuzz->call($value));
   }
 
-  public function NaNArray(){
+  public function NaNatArray(){
     return [
       ['野獣'],
       [0.15], 
       [-13],
       [-5.3],
-      ['foo']
+      ['foo'],
+      [0],
+      ['ですん']
     ];
   }
 
   /**
    * @test
    * @expectedException Exception
-   * @dataProvider NaNArray
+   * @expectedExceptionMessage それ自然数じゃない
+   * @dataProvider NaNatArray
    */
   public function 引数が非整数のとき例外を返す($value){
+    $fizzbuzz = new FizzBuzz();
+    $expected = $value;
+    $fizzbuzz->call($expected);
+  }
+
+  public function bigNumArray(){
+    return [
+      [101],
+      [1991],
+      [13579]
+    ];
+  }
+
+  /**
+   * @test
+   * @expectedException Exception
+   * @expectedExceptionMessage でかすぎ
+   * @dataProvider bigNumArray
+   */
+  public function 引数の値が101以上のとき例外を返す($value){
     $fizzbuzz = new FizzBuzz();
     $expected = $value;
     $fizzbuzz->call($expected);

@@ -5,9 +5,15 @@ use Exception;
 class Fizzbuzz
 {
 
-    private function NaNIntThrowException($value){
-      if(!is_int($value) or $value < 0){
-        throw new Exception("それ整数ちゃう");
+    private function NaNatThrowException($value){
+      if(!is_int($value) or $value <= 0){
+        throw new Exception("それ自然数じゃない");
+      }
+    }
+
+    private function bigNumThrowException($value){
+      if($value > 100){
+        throw new Exception("でかすぎ");
       }
     }
 
@@ -25,7 +31,8 @@ class Fizzbuzz
 
     public function call($value){
       
-      $this->NaIntThrowException($value);
+      $this->NaNatThrowException($value);
+      $this->BigNumThrowException($value);
 
       if ($this->isFizzBuzz($value)){
         return 'FizzBuzz';
